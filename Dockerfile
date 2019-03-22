@@ -32,12 +32,9 @@ COPY docker ./docker
 COPY templates ./templates
 COPY public ./public
 COPY --from=binarybuilder /go/src/github.com/gogs/gogs/gogs .
-RUN echo addGrp 
-RUN addgroup -S app && adduser -S -G app -u 1001 gogs 
-
 RUN ./docker/finalize.sh
 
-USER 1001
+USER git 
 # Configure Docker Container
 VOLUME ["/data"]
 EXPOSE 22 3000

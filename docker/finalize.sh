@@ -6,7 +6,7 @@ set -e
 
 # Create git user for Gogs
 addgroup -S git
-adduser -G git -H -D -g 'Gogs Git User' git -h /data/git -s /bin/bash && usermod -p '*' git && passwd -u git
+adduser -G git -H -D -g 'Gogs Git User' -u 1001 git -h /data/git -s /bin/bash && usermod -p '*' git && passwd -u git
 echo "export GOGS_CUSTOM=${GOGS_CUSTOM}" >> /etc/profile
 
 # Final cleaning
