@@ -34,8 +34,8 @@ COPY public ./public
 COPY --from=binarybuilder /go/src/github.com/gogs/gogs/gogs .
 
 RUN ./docker/finalize.sh
-
-USER 997
+RUN addgroup -S app && adduser -S -G app app 
+USER 1001
 # Configure Docker Container
 VOLUME ["/data"]
 EXPOSE 22 3000
