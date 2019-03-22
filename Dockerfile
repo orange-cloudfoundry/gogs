@@ -33,7 +33,7 @@ COPY templates ./templates
 COPY public ./public
 COPY --from=binarybuilder /go/src/github.com/gogs/gogs/gogs .
 RUN echo addGrp 
-RUN addgroup -S app && adduser -S -G -u 1001 app 
+RUN addgroup -S app && adduser -S -G app -u 1001  
 
 RUN ./docker/finalize.sh
 
