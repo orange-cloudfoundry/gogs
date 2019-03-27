@@ -38,4 +38,5 @@ RUN ./docker/finalize.sh
 VOLUME ["/data"]
 EXPOSE 22 3000
 RUN ./docker/prestart.sh
+USER git
 ENTRYPOINT ["/app/gogs/docker/start.sh"]
