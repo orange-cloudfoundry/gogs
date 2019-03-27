@@ -4,5 +4,6 @@
 if [ $# -gt 0 ];then
     exec "$@"
 else
-    exec gosu /bin/s6-svscan /app/gogs/docker/s6/
+    export USER=git
+    exec gosu $USER /app/gogs/gogs web
 fi
